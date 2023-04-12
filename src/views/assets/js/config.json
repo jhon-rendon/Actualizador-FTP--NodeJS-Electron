@@ -1,0 +1,26 @@
+{
+    "data_conection": {
+        "host": "172.16.20.7",
+        "user": "actualizador",
+        "password": "7ecn0l061a",
+        "database": "actualizador"
+    },
+    "data_ftp_ssh":{
+        "user":"gamble",
+        "password":"gamble",
+        "port": 22,
+        "rutaDefault":"/home/gamble/",
+        "intentosPermitidos":"3",
+        "tiempoReconexion":"60000"
+    },
+    "data_rutas_app":{
+        "vnc":"C:/Program Files/uvnc bvba/UltraVNC/vncviewer.exe",
+        "putty":"C:/Program Files/PuTTY/putty.exe"
+    },
+    "data_vnc":{
+        "password":"Apupa009"
+    }
+
+}
+
+

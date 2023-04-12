@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Actualizador Versión 1.0</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="assets/img/favicon.ico"
+    />
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="assets/css/bootstrap-5.0.0-alpha.min.css" />
+    <!--<link rel="stylesheet" href="assets/css/LineIcons.2.0.css" />-->
+    <!--<link rel="stylesheet" href="assets/css/animate.css" />-->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/chat.css" />
+    <style>
+      /* Works on Firefox */
+      * {
+        scrollbar-width: thin;
+      }
+
+      /* Works on Chrome, Edge, and Safari */
+      *::-webkit-scrollbar {
+        width: 7px;
+      }
+
+      *::-webkit-scrollbar-thumb {
+        background-color: rgb(165, 155, 155);
+        border-radius: 10px;
+        border: 1px solid rgb(179, 170, 170);
+      }
+    </style>
+  </head>
+  <body>
+   
+
+    <!-- ========================= header start ========================= -->
+    <header
+      class="header navbar-area bg-white"
+      style="height: 90px;background: rgb(2,0,36);
+      background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(88,103,103,0.8127451664259454) 35%, rgba(225,238,241,1) 100%);"
+    >
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-12">
+            <nav class="navbar navbar-expand-lg">
+              <div style="">
+                <img
+                  src="assets/img/logo.png"
+                  alt="Logo"
+                  style="width:350px"
+                />
+                
+              </div>
+
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+              </button>
+
+              <!--<div
+                class="collapse navbar-collapse sub-menu-bar"
+                id="navbarSupportedContent"
+              >
+                <ul id="nav" class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                    <a class="page-scroll active" href="historial.html">Historial</a>
+                  </li>
+                </ul>
+                <div class="header-btn">
+                  <a href="index.html" class="theme-btn">Hoy</a>
+                </div>
+              </div>-->
+              <!-- navbar collapse -->
+            
+            </nav>
+            <!-- navbar -->
+          </div>
+        </div>
+       
+        <!-- row -->
+      </div>
+     
+      <!-- container -->
+    </header>
+    <!-- ========================= header end ========================= -->
+
+    <div class="container-fluid" >
+      <span style="font-size: 10px;float: right;">Desarrollado By Jhon Rendón</span>
+      
+      
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Principal</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Comandos</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Reportes</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+
+          <div class="container row" >
+
+     
+            <div class="col-lg-7" style="width: 50%;margin: 0 auto;">
+             
+            
+              <form enctype="multipar/form-data" style="margin:20px;" >
+              
+                <div class="mb-3">
+                    <label for="rutaOrigen" class="form-label">Ruta Origen</label>
+                    <input type="file" class="form-control" id="rutaOrigen" style="">
+                  </div>
+                  <div class="mb-3">
+                    <label for="rutaDestino" class="form-label">Ruta Destino</label>
+                    <input type="text" class="form-control" id="rutaDestino">
+                  </div>
+    
+                  <label>Categoria</label>
+            <select name="categoria" id="categoria" class="form-control"></select>
+                  
+                </form>
+            </div>
+    
+            
+            <div class="col-lg-5" style="margin-top: 20px;">
+              <label>Observación</label>
+                <textarea class="form-control" style="height:200px;" id="observacion"></textarea>
+            </div>
+            
+          </div>
+         
+          
+          <div class="alert alert-success" role="alert" id="msg" style="width: 50%;margin-top: 20px;display: none;">
+    
+          </div>
+            <br>
+           
+            <div class="row">
+              <div class="col-lg-6">
+                <div id="comando">
+
+                </div>
+                <span>Listando Puntos de Venta.. <span id="cantidad"></span></span>
+                <div class='progress' style="width: 30%;">
+                  <div class='progress-bar'  role='progressbar'  id='cargaPuntos' style='width:0%;' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100'>0%</div>
+                  </div>
+          
+                  <br>
+                  
+                </div>
+      
+                <div class="col-lg-5" style="text-align: right;">
+                  <button class="btn btn-dark" id="recargar" onclick="window.location='index.html'" >Recargar</button> 
+                  <button class="btn btn-primary" id="transTodo" disabled>Transferir a Todos</button>  
+                  <button class="btn btn-warning" style=" color:black;font-weight: bold;"id="hvTodo" disabled>HV Todo</button>  
+                  <br>
+                  <span id="totalHV" style="display:none"></span> 
+                  
+                </div>
+
+            </div>
+        
+          <table class="table table-bordered table-hover" id="tablePDV">
+    
+          
+              <thead class="thead-dark" style="">
+                <tr>
+                  <th>Estado</th>
+                  <th>IP</th>
+                  <th>Zona</th>
+                  <th>Punto de venta</th>
+                  <th>Hora Inicio</th>
+                  <th>Hora Final</th>
+                  <th> Acción </th>
+                  <th>Porcentaje</th>
+                  
+                </tr>
+              </thead>
+    
+              <tbody id="listadoPDV">
+    
+              </tbody>
+            
+          </table> 
+
+
+
+
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+          <h3>En construcción</h3>
+
+        </div>
+
+
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+
+          <div class="row g-3"  style="background-color: rgb(250, 250, 250);margin-top:0px;">
+                 
+            <div class="col-auto" >
+              <label  class="visually-hidden">Fecha Inicial</label>
+              <input type="date"  id="fechaInicial"  style="width:170px;padding:.370rem .70rem;">
+
+              <br><br>
+              <label  class="visually-hidden">Fecha Final</label>
+              <input type="date"  id="FechaFinal"  style="width:170px;padding:.370rem .70rem;">
+              <br><br>
+              <button class="btn btn-info" id="exportar" onclick="exportarExcel()">Exportar</button>
+
+              <h3>En construcción</h3>
+            </div>    
+
+          </div>
+         
+       
+
+        </div>
+      </div>
+      
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Error</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="modalBody">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script type="text/javascript">
+      getListCatgorias();
+      tableListarPuntos();
+  
+      const intervalID = setInterval (() => { validPing()},10000);
+      
+  //60000
+ 
+    </script>
+
+    </body>
+</html>
