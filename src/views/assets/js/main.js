@@ -353,6 +353,8 @@ const getHVPDV = async( event , tipo = null) =>{
         zona,
         hostname  : null,
         so        : null,
+        macBnet   : null,
+        macReal   : null,
         ram       : null,
         procesador: null,
         board     : null,
@@ -382,6 +384,42 @@ const getHVPDV = async( event , tipo = null) =>{
 
         json.so = result.stdout;
       });
+
+      await ssh.execCommand(`ifconfig | grep ether | awk '{print $2}'`, { cwd:'./' }).then(function(result) {
+        console.log('STDOUT: ' + result.stdout)
+        console.log('STDERR: ' + result.stderr)
+
+
+      
+         let stringMAC = result.stdout;
+         let parts = [];
+         parts = stringMAC.split(":");
+         let  macBnet = "";
+         let contador   = 1;
+        
+        if( parts.length > 0 ){
+            for( let i=0; i<parts.length; i++ ) {
+
+               if(  parts[i].charAt(0) == '0' ){
+                    macBnet+=parts[i].charAt(1);
+               }else{
+                   macBnet+=parts[i];
+               }
+
+               if( contador < parts.length ){
+                   macBnet+="-";
+               }
+               contador++;
+            }//fin for
+        }
+       
+      //System.out.println("MAC BNET: " + macBnet); 
+        table+= `<tr><th>MAC BNET </th><td>${  macBnet.replace(/\s/g,';')}</td></tr>` ;
+        table+= `<tr><th>MAC REAL </th><td>${  stringMAC.replace(/\s/g,';')}</td></tr>` ;
+        json.macBnet =  macBnet.replace(/\s/g,';');
+        json.macReal =  stringMAC.replace(/\s/g,';');
+      });
+
 
       await ssh.execCommand(`free -m  `, { cwd:'./' }).then(function(result) {
         console.log('STDOUT: ' + result.stdout)
@@ -664,7 +702,7 @@ $("#hvTodo").click( async function(e){
         $("#totalHV").html( contadorReg + " de "+ total);
       }
 
-      if( contadorReg == 5 ) break;
+      //if( contadorReg == 5 ) break;
   }
   exportarExcel();
   $(this).attr('disabled', false);

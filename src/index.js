@@ -6,7 +6,7 @@ require("dotenv").config();
 let mainWindow;
 
 // Reload in Development for Browser Windows
-if(process.env.NODE_ENV !== 'production') {
+/*if(process.env.NODE_ENV !== 'production') {
   require('electron-reload')(__dirname, {
     electron: path.join(__dirname, '../node_modules', '.bin', 'electron')
   });
@@ -18,7 +18,7 @@ if (isDev) {
     require('electron-reload')(__dirname, {
         electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
     });
-}
+}*/
 
 
 app.on('ready', () => {
@@ -38,7 +38,7 @@ app.on('ready', () => {
     slashes: true
   }))
 
-  //Menu.setApplicationMenu(null);
+  Menu.setApplicationMenu(null);
   //mainWindow.setResizable(false);
 
   // If we close main Window the App quit
