@@ -1,15 +1,15 @@
 {
     "data_conection": {
-        "host": "172.16.20.7",
-        "user": "actualizador",
-        "password": "7ecn0l061a",
+        "host": "localhost",
+        "user": "",
+        "password": ",
         "database": "actualizador"
     },
     "data_ftp_ssh":{
-        "user":"gamble",
-        "password":"gamble",
+        "user":"",
+        "password":"",
         "port": 22,
-        "rutaDefault":"/home/gamble/",
+        "rutaDefault":"/home/",
         "intentosPermitidos":"3",
         "tiempoReconexion":"60000"
     },
@@ -18,7 +18,7 @@
         "putty":"C:/Program Files/PuTTY/putty.exe"
     },
     "data_vnc":{
-        "password":"Apupa009"
+        "password":""
     }
 
 }
